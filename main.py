@@ -1,5 +1,8 @@
 import heapq
 from graph import Graph
+from adversarial_search import AdversarialSearchGraph
+from adversarial_graph import AdversarialGraph
+
 
 class SearchGraph:
     def __init__(self, graph):
@@ -117,6 +120,7 @@ class SearchGraph:
 
 if __name__ == "__main__":
     g = Graph()
+
     search_graph = SearchGraph(g)
     start = 'Addis Ababa'
     goal = 'Moyale'
@@ -140,3 +144,12 @@ if __name__ == "__main__":
     strategy = 'A*'
     result = search_graph.search(start, goal, strategy)
     print(f"Path found using {strategy}: {result}")
+
+    # Adversarial search
+    ag = AdversarialGraph()
+    adversarial_search_graph = AdversarialSearchGraph(ag)
+    start = 'Addis Ababa'
+    depth = 3
+
+    best_move = adversarial_search_graph.find_best_move(start, depth)
+    print(f"Best move from {start} with depth {depth}: {best_move}")
