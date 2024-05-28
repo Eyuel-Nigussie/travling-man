@@ -2,6 +2,8 @@ import heapq
 from graph import Graph
 from adversarial_search import AdversarialSearchGraph
 from adversarial_graph import AdversarialGraph
+from relaxed_search import RelaxedSearchGraph
+from relaxed_graph import RelaxedGraph
 
 
 class SearchGraph:
@@ -153,3 +155,17 @@ if __name__ == "__main__":
 
     best_move = adversarial_search_graph.find_best_move(start, depth)
     print(f"Best move from {start} with depth {depth}: {best_move}")
+
+     # Relaxed search
+    rg = RelaxedGraph()
+    relaxed_search_graph = RelaxedSearchGraph(rg)
+    start = 'Addis Ababa'
+    goal = 'Gode'
+    strategy = 'BFS'
+
+    path = relaxed_search_graph.search(start, goal, strategy)
+    print(f"Path using {strategy}: {path}")
+
+    strategy = 'DFS'
+    path = relaxed_search_graph.search(start, goal, strategy)
+    print(f"Path using {strategy}: {path}")
